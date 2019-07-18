@@ -32,7 +32,8 @@ public class Box {
                 box.newList.stream())
                 .filter((t) -> (
                         fragileThings.stream().map(Thing::getName).collect(Collectors.toList()).contains(t.getName())))
-                .map(Protected::protectThing).collect(Collectors.toList())
+                .map(Protector::new)
+                .collect(Collectors.toList())
                 .forEach(System.out::println);
     }
 
