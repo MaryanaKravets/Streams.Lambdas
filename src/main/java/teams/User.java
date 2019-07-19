@@ -34,7 +34,7 @@ public class User {
     }
 
     static Map<String, List<String>> filterUserByLoginDate(List<User> list) {
-        return list.stream().filter((user) -> (
+        return list.stream().filter(user -> (
                 Period.between(user.getLoginDate(), LocalDate.now()).getDays() <= 7))
                 .collect(Collectors.groupingBy(User::getTeams, Collectors.mapping(User::getEmail, Collectors.toList())));
     }

@@ -28,9 +28,9 @@ public class Box {
     }
 
     static void listOfProtectFragileThings(List<Box> boxList) {
-        boxList.stream().flatMap((box) ->
+        boxList.stream().flatMap(box ->
                 box.newList.stream())
-                .filter((t) -> (
+                .filter(t -> (
                         fragileThings.stream().map(Thing::getName).collect(Collectors.toList()).contains(t.getName())))
                 .map(Protector::new)
                 .collect(Collectors.toList())
